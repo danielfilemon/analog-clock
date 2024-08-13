@@ -84,7 +84,7 @@
             const minuteHand = document.getElementById('minutes');
             const secondHand = document.getElementById('seconds');
 
-            // Movimento contínuo para o ponteiro das horas
+           
             const hourDeg = (360 / 12) * (hours + minutes / 60 + seconds / 3600 + milliseconds / 3600000);
             const minuteDeg = (360 / 60) * (minutes + seconds / 60 + milliseconds / 60000);
             const secondDeg = (360 / 60) * (seconds + milliseconds / 1000);
@@ -94,7 +94,7 @@
             secondHand.style.transform = `rotate(${secondDeg}deg)`;
         }
 
-        setInterval(updateClock, 50); // Atualização mais frequente para movimento contínuo
+        setInterval(updateClock, 50); 
     </script>
 </body>
 </html>
