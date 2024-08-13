@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        body {
+body {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -19,6 +13,7 @@
             height: 200px;
             border: 10px solid #333;
             border-radius: 50%;
+            background-color: #fff;
         }
 
         .hand {
@@ -26,60 +21,38 @@
             background-color: #333;
             transform-origin: 50% 100%;
             transform: rotate(0deg);
-            transition: transform 0.5s cubic-bezier(0.4, 2.5, 0.4, 0.8);
         }
 
         #hours {
-            height: 40px;
+            height: 50px;
             width: 6px;
-            top: 50px;
+            top: 40px;
             left: 97px;
         }
 
         #minutes {
-            height: 60px;
+            height: 70px;
             width: 4px;
-            top: 40px;
+            top: 30px;
             left: 98px;
         }
 
         #seconds {
-            height: 80px;
+            height: 90px;
             width: 2px;
-            top: 20px;
+            top: 10px;
             left: 99px;
+            background-color: red;
+        }
+
+        .center {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #333;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
     </style>
-    <title>Relógio</title>
-</head>
-<body>
-    <div class="clock">
-        <div id="hours" class="hand"></div>
-        <div id="minutes" class="hand"></div>
-        <div id="seconds" class="hand"></div>
-    </div>
-
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const hours = now.getHours() % 12; // Use % 12 to convert 24-hour time to 12-hour time
-            const minutes = now.getMinutes();
-            const seconds = now.getSeconds();
-
-            const hourHand = document.getElementById('hours');
-            const minuteHand = document.getElementById('minutes');
-            const secondHand = document.getElementById('seconds');
-
-            const hourDeg = (360 / 12) * hours + (360 / 12) * (minutes / 60);
-            const minuteDeg = (360 / 60) * minutes + (360 / 60) * (seconds / 60);
-            const secondDeg = (360 / 60) * seconds;
-
-            hourHand.style.transform = `rotate(${hourDeg}deg)`;
-            minuteHand.style.transform = `rotate(${minuteDeg}deg)`;
-            secondHand.style.transform = `rotate(${secondDeg}deg)`;
-        }
-
-        setInterval(updateClock, 1000);
-    </script>
-</body>
-</html>
